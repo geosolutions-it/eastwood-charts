@@ -1,0 +1,461 @@
+2009-05-13  David Gilbert  <david.gilbert@object-refinery.com>
+
+    Patch 2604383 by Bill Bejeck:
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Handle 'dial' chart type,
+    (createDialChart): New method.
+
+2009-05-13  David Gilbert  <david.gilbert@object-refinery.com>
+
+    Patch 2124467 by Ingo Kegel:
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Handle 'ewlo' tag,
+    (getCategoryLabelPositions): New method.
+
+2009-05-13  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (processFillSpec): Handle GCategoryPlot,
+    * source/org/jfree/eastwood/GCategoryPlot.java
+    (angle): New field,
+    (f0): Likewise,
+    (f1): Likewise,
+    (GCategoryPlot): Initialise new fields,
+    (setAngle): New method,
+    (setF0): Likewise,
+    (setF1): Likewise,
+    (drawBackground): New method.
+
+2009-05-13  David Gilbert  <david.gilbert@object-refinery.com>
+
+    Bug 2057907:
+    * source/org/jfree/eastwood/GXYPlot.java
+    (drawBackground): Handle horizontal and vertical gradients as special
+    cases.
+
+2009-05-13  David Gilbert  <david.gilbert@object-refinery.com>
+
+    Patch 2124394 by Ingo Kegel:
+    * source/org/jfree/eastwood/ChartServlet.java
+    (maximumImageSize): New field,
+    (init): Check for maximum image size parameter,
+    (parseChartDimensions): Check maximum size against new maximumImageSize
+    field.
+
+2009-05-13  David Gilbert  <david.gilbert@object-refinery.com>
+
+    Bug 2513305:
+    * source/org/jfree/eastwood/ChartEngine.java
+    (createScatterChart): Construct chart using GXYPlot.
+
+2009-05-05  Andrea Aime <aaime@opengeo.org>
+    * source/org/jfree/eastwood/ChartEngine.java
+      (buildChart): Added support for the pie rotation parameter chp,
+    * tests/org/jfree/eastwood/junit/ChartEngineTests.java
+      Added tests for the chp param parsing.
+
+2009-05-05  Andrea Aime <aaime@opengeo.org>
+    * pom.xml
+      Changed default archive to .jar, simplified the pom
+    * README.txt
+      Added instructions to use Maven
+
+2009-05-03  Andrea Aime  <aaime@opengeo.org>
+    * source/org/jfree/eastwood/ChartEngine.java
+      Add support for chxs parameter (axis style),
+    * tests/org/jfree/eastwood/junit/ChartEngineTests.java
+      Adding some chxs tests.
+
+2009-05-03  Andrea Aime  <aaime@opengeo.org>
+    * pom.xml
+      Add OSGEO repository so that other people can build
+      Eastwood with Maven too (I've stored there the
+      necessary dependent jars)
+
+2009-05-01  Andrea Aime  <aaime@opengeo.org>
+    * source/org/jfree/eastwood/DataUtilities.java
+      Parse numbers with scientific notation, make sure the
+      "number < 0 => null" rule is respected also for the
+      last number of a series, and for the first one after a pipe,
+    * tests/org/jfree/eastwood/junit/DataUtilitiesTests.java
+      Make sure the above patch works by adding scientific
+      numbers tests and extending the ones already available
+      for negative number handling.
+
+2009-05-01  Andrea Aime  <aaime@opengeo.org>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+      Make sure pie plot background is transparent,
+    * tests/org/jfree/eastwood/junit/ChartEngineTests.java
+      Test the patch to make sure the bug was fixed (see also
+      report 2061712).
+
+2009-05-01  Andrea Aime  <aaime@opengeo.org>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+      Parse alpha component in hex color specs
+    * tests/org/jfree/eastwood/junit/ChartEngineTests.java
+      Test the patch to make sure the bug was fixed (see also
+      report 2780330)
+   
+2009-05-01  Andrea Aime  <aaime@opengeo.org>
+
+    * .
+      Adding target to the svn:ignore for root, this folder is generated
+      by maven during the build
+
+2009-05-01  Andrea Aime  <aaime@opengeo.org>
+
+    * pom.xml
+      Adding test configuration so that maven runs the tests during
+      the build
+
+2009-05-01  Andrea Aime  <aaime@opengeo.org>
+
+    * pom.xml
+      Updating pom.xml dependecies to the same version numbers as the
+      the 1.1.0 release, update version to 1.1.1-snapshot
+
+2008-08-11  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Handle range for 3D axis.
+
+---- EASTWOOD 1.1.0 RELEASED ----
+
+2008-07-18  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/GValueAxis.java
+    (refreshTicks): Recalculate implicit label position,
+    * source/org/jfree/eastwood/GValueAxis3D.java
+    (refreshTicks): Likewise.
+
+2008-07-18  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (createPieChart): Enable tooltips for use in applet,
+    (createPieChart3D): Likewise.
+
+2008-07-18  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (parseColors): Split multiple colours.
+
+2008-07-18  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartApplet.java: New file.
+
+2008-07-18  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartServlet.java
+    (readFontFile): Replaced createFont() with JRE1.4 compatible version.
+
+2008-07-16  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (processGridLineSpec): Divide grid step by 100.0.
+
+2008-07-16  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Check for 'bvg3', 'bvs3', 'bhg3' and 'bhs3' chart types,
+    (createBarChart3D): New method,
+    (createStackedBarChart3D): Likewise,
+    * source/org/jfree/eastwood/GCategoryAxis3D.java: New class,
+    * source/org/jfree/eastwood/GValueAxis3D.java: Likewise.
+
+2008-07-15  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (processAxisStrH): Fix location of additional 'x' axes.
+
+2008-07-15  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (processAxisStrV): Hide axis line,
+    * source/org/jfree/eastwood/GCategoryAxis.java
+    (refreshTicks): Get categories for primary axis.
+
+2008-07-15  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/Application.java
+    (renderChart): Check for and strip out Google URL.
+
+2008-07-15  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Updated for method name change,
+    * source/org/jfree/eastwood/GCategoryAxis.java
+    (setTickLabelPositions): New stub method,
+    * source/org/jfree/eastwood/GLabelledAxis.java
+    (setTickLabelPositions): New interface method,
+    * source/org/jfree/eastwood/GValueAxis.java
+    (tickValues): Renamed tickLabelPositions,
+    (GValueAxis): Updated for field name change,
+    (setTickValues): Renamed setTickLabelPositions(),
+    (refreshTicks): Fixed tick value calculation.
+
+2008-07-15  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (createLineChart): Changed axis visibility,
+    (createBarChart): Likewise,
+    (createScatterChart): Likewise,
+    (processAxisStr): Likewise,
+    (processAxisStrV): Likewise,
+    (processAxisStrH): Likewise.
+
+2008-07-15  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/GValueAxis.java
+    (refreshTicks): Fixed for inverted 'chxr' attributes.
+    
+2008-07-15  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Another instanceof check,
+    * source/org/jfree/eastwood/GValueAxis.java
+    (getLabelAxisStart): New method,
+    (setLabelAxisStart): Likewise,
+    (getLabelAxisEnd): Likewise,
+    (setLabelAxisEnd): Likewise,
+    * test.html: Added new test charts.
+
+2008-07-15  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): For 'chls' check that plot is an instance of XYPlot to 
+    prevent ClassCastException.
+
+2008-07-15  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/GValueAxis.java
+    (axisForAutoLabels): New field,
+    (labelAxisStart): Likewise,
+    (labelAxisEnd): Likewise,
+    (GValueAxis): Updated initialisation,
+    (refreshTicks): Use hidden axis to auto-generate ticks when labels aren't
+    explicitly set.
+
+2008-07-14  David Gilbert  <david.gilbert@object-refinery.com>
+
+    Based on patch 2001599 by Niklas Therning:
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Read 'chds' parameters and pass to data parsing,
+    * source/org/jfree/eastwood/DataUtilities.java
+    (parseTextData): Added scaling argument,
+    (parseDataScaling): New method,
+    (getScaling): Likewise,
+    (getScalingMin): Likewise,
+    (getScalingMax): Likewise,
+    (parsePieDataset): Added scalingStr argument,
+    (parseCategoryDataset): Likewise,
+    (parseXYDataset): Likewise,
+    (parseXYDataset2): Likewise,
+    (parseScatterDataset): Likewise,
+    * source/org/jfree/eastwood/GValueAxis.java
+    (GValueAxis): Changed default axis range.
+
+2008-07-14  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Updated for moved dataset parsing methods,
+    (parseCategoryDataset): Moved to DataUtilities,
+    (parseXYDataset): Likewise,
+    (parseXYDataset2): Likewise,
+    (parseScatterDataset): Likewise,
+    * source/org/jfree/eastwood/DataUtilities.java
+    (parseCategoryDataset): New method,
+    (parseXYDataset): Likewise,
+    (parseXYDataset2): Likewise,
+    (parseScatterDataset): Likewise,
+    * tests/org/jfree/eastwood/junit/DataUtilitiesTests.java
+    (testParseCategoryDataset): New test method,
+    (testParseXYDataset): Likewise,
+    (testParseXYDataset2): Likewise.
+
+2008-07-14  David Gilbert  <david.gilbert@object-refinery.com>
+
+	* source/org/jfree/eastwood/ChartEngine.java
+	(buildChart): Added FIXME for axis ranges, and parse 
+	datasets without axis range scaling,
+	(parseCategoryDataset): Removed axis range parameter,
+	(parseXYDataset): Removed axis range parameters,
+	(parseXYDataset2): Likewise,
+	(parseScatterDataset): Likewise.
+
+2008-07-14  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Updated for moved method,
+    (parsePieDataset): Moved to DataUtilities.java
+    * source/org/jfree/eastwood/DataUtilities.java
+    (parsePieDataset): New method,
+    * tests/org/jfree/eastwood/junit/DataUtilitiesTests.java
+    (testParsePieDataset): New test method.
+
+2008-07-14  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (parsePieDataset): Updated for moved methods,
+    (parseCategoryDataset): Likewise,
+    (parseXYDataset): Likewise,
+    (parseXYDataset2): Likewise,
+    (parseScatterDataset): Likewise,
+    (parseSimpleData): Moved to DataUtilities class,
+    (parseTextData): Likewise,
+    (parseExtendedData): Likewise,
+    * source/org/jfree/eastwood/DataUtilities.java: New class,
+    * tests/org/jfree/eastwood/junit/DataUtilitiesTests.java: New class.
+
+2008-07-14  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart(Map)): New method.
+
+2008-07-02  Niklas Therning  <niklas@trillian.se>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Added font parameter and made sure the configured 
+    font is used for all titles and labels,
+    * source/org/jfree/eastwood/Application.java
+    (renderChart): Changed call to ChartEngine.buildChart() to supply 
+    the font to be used,
+    * source/org/jfree/eastwood/ChartServlet.java: Added init() method 
+    which reads the font configured by the user through init-params.
+
+2008-07-02  Niklas Therning  <niklas@trillian.se>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (createBarChart): Removed unnecessary code.
+
+2008-07-01  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Process Eastwood-specific 'ewd2' and 'ewtr' tags,
+    (processEWTR): New method,
+    * test.html: Added new Eastwood-specific sample charts. 
+
+2008-07-01  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/Application.java
+    (Application(String)): Removed setMinimumSize as it won't compile on 
+    JDK 1.4.
+
+2008-06-30  Niklas Therning  <niklas@trillian.se>
+
+    * source/org/jfree/eastwood/GCategoryPlot.java: New class which adds support 
+    for specifying the step size to use for grid lines in bar charts,
+    * source/org/jfree/eastwood/GXYPlot.java: Added support for specifying the 
+    step size to use for grid lines in xy charts,
+    * source/org/jfree/eastwood/ChartEngine.java:
+    (buildChart): Factored out the code which processes the 'chg' parameter,
+    (processGridLinesSpec): New method which parses and processes the 'chg' 
+    parameter and supports x and y axis step sizes for grid lines and grid line
+    style.
+
+2008-06-30  Niklas Therning  <niklas@trillian.se>
+
+    * pom.xml: Added description and scm connection information.
+
+2008-06-27  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * tests/org/jfree/eastwood/junit/ChartEngineTests.java: New file.
+
+2008-06-27  David Gilbert  <david.gilbert@object-refinery.com>
+
+    Patch 2003913 by Niklas Therning: 
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Disable plot outlines.
+
+2008-06-27  David Gilbert  <david.gilbert@object-refinery.com>
+
+    Patch 2001586 by Niklas Therning:
+    * pom.xml: New Maven file. 
+
+2008-06-27  David Gilbert  <david.gilbert@object-refinery.com>
+
+    Patch 2002341 by Niklas Therning:
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Added support for 'chdl' in bar charts, and 'chdlp' in bar
+    and xy chart,
+    * source/org/jfree/eastwood/GXYSeriesLabelGenerator.java: Renamed to
+    GSeriesLabelGenerator.java,
+    * source/org/jfree/eastwood/GSeriesLabelGenerator.java: Renamed from
+    GXYSeriesLabelGenerator, plus implemented CategorySeriesLabelGenerator.
+
+2008-06-26  David Gilbert  <david.gilbert@object-refinery.com>
+
+    Patch 2001783 by Niklas Therning:
+    * source/org/jfree/eastwood/Application.java
+    (actionPerformed): Print stack trace for any exceptions from chart 
+    rendering,
+    (renderChart): Declare UnsupportedEncodingException,
+    * source/org/jfree/eastwood/ChartServlet.java
+    (doGet): Parse the query string ourselves,
+    * source/org/jfree/eastwood/Parameters.java
+    (stringToMap): Removed,
+    (breakString): Likewise,
+    (parseQueryString): New method,
+    (urlDecode): Likewise.
+    
+2008-06-12  David Gilbert  <david.gilbert@object-refinery.com>
+
+	Bug 1872190:
+	* source/org/jfree/eastwood/ChartEngine.java
+	(createPieChart): Set label background to null.
+
+2008-06-11  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/Application.java
+    (renderChart): Account for panel insets when setting preferred size,
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Add support for sparklines,
+    (createSparklineChart): New method.
+
+2008-06-10  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/Application.java: New file,
+    * source/org/jfree/eastwood/CentreLayout.java: Likewise,
+    * source/org/jfree/eastwood/Parameters.java: Likewise.
+
+2008-06-10  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java
+    (buildChart): Values extracted from parameter Map are String[] not String,
+    * source/org/jfree/eastwood/ChartServlet.java
+    (doGet): Likewise.
+
+2008-06-09  David Gilbert  <david.gilbert@object-refinery.com>
+
+    * source/org/jfree/eastwood/ChartEngine.java: New file,
+    * source/org/jfree/eastwood/ChartServlet.java
+    (doGet): Moved chart creation to new ChartEngine class,
+    (breakString): Moved to ChartEngine class,
+    (addMarker): Likewise,
+    (parseColor): Likewise,
+    (parseColors): Likewise,
+    (applyColorsToPiePlot): Likewise,
+    (sectionIndexForColor): Likewise,
+    (interpolateColor): Likewise,
+    (parseLineStyles): Likewise,
+    (processFillSpec): Likewise,
+    (processAxisStr): Likewise,
+    (processAxisStrV): Likewise,
+    (processAxisStrH): Likewise,
+    (parsePieDataset): Likewise,
+    (parseCategoryDataset): Likewise,
+    (parseXYDataset): Likewise,
+    (parseXYDataset2): Likewise,
+    (parseScatterDataset): Likewise,
+    (parseSimpleData): Likewise,
+    (parseTextData): Likewise,
+    (parseExtendedData): Likewise,
+    (googleValue): Likewise,
+    (googleValueExt): Likewise,
+    (createPieChart): Likewise,
+    (createPieChart3D): Likewise,
+    (createLineChart): Likewise,
+    (createBarChart): Likewise,
+    (createStackedBarChart): Likewise,
+    (createScatterChart): Likewise.
